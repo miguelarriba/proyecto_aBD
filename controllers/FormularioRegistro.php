@@ -73,8 +73,8 @@ EOF;
       			$user->closeConnection();
       		}catch(Exception $e){
       			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-      			$_SESSION['data_error']=$e->getMessage();
-      			$result = '../errorpage.php';
+      			echo $e->getMessage();
+      			//$result = '../views/signup.php';
       		}
       	}
         return $result;

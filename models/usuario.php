@@ -7,7 +7,7 @@ class Usuario extends EntidadBase {
 
 
     public function __construct(){
-		    $this->table = "usuario";
+		    $this->table = "user";
         $class = "Usuario";
         parent::__construct($this->table, $class);
     }
@@ -40,13 +40,11 @@ class Usuario extends EntidadBase {
     Guarda el usuario en la base de datos
   */
 	public function signupUser(){
-        $query="INSERT INTO usuario (mail,password,blogname)
-                VALUES('".$this->mail."',
-                       '".$this->password."',
-                       '".$this->nombre."');";
-        if($this->db()->query($query) == false) {
-			throw new Exception('MySQL: Error al realizar la inserción SQL');
-		}
+        $query="INSERT INTO user (mail, password, blogname)
+                VALUES ('HOla','aaaa','asdfasdf')";
+
+        if($this->db()->query($query) == false)
+			     throw new Exception('MySQL: Error al realizar la inserción SQL');
 
     }
 }

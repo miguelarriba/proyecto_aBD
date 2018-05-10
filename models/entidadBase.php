@@ -19,16 +19,16 @@ class EntidadBase{
     public function __construct($table, $class) {
         $this->table=(string) $table;
         $this->class=(string) $class;
-    	require_once '../config/conectar.php';
-		try{
-			$conectar=new Conectar();
-			$this->db=$conectar->getConexion();
-		}catch(Excepcion $e){
-			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
-			throw new Exception($e);
-		}
+        require_once '../config/conectar.php';
+    		try{
+    			$conectar=new Conectar();
+    			$this->db=$conectar->getConexion();
+    		}catch(Excepcion $e){
+    			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
+    			throw new Exception($e);
+    		}
     }
-	
+
 	public function closeConnection(){
 		$conectar=new Conectar();
 		$conectar->closeConexion($this->db);
@@ -43,7 +43,7 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
+
 	public function getNumElemsOrderByAsc($column, $numElem){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column ASC LIMIT $numElem");
 		 if($req==false){
@@ -52,7 +52,7 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
+
 		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
 	public function getAllFilteredAndOrderASC($column, $filter, $valueFilter){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column ASC");
@@ -62,7 +62,7 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
+
 			/*Selecciona número de elementos con un filtro ordenados por la columna indicada y orden ascendente*/
 	public function getNumElemsOrderBy($column, $numElem){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC LIMIT $numElem");
@@ -72,8 +72,8 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
-		
+
+
 		/*Selecciona todos los elementos con un filtro ordenados por la columna indicada y orden ascendente*/
 	public function getAllFilteredAndOrderDesc($column, $filter, $valueFilter){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter' ORDER by $column DESC ");
@@ -83,8 +83,8 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
-	
+
+
 	/*Seleccionar todos los elementos filtrados por el elemento indicado*/
 	public function getAllFiltered($filter, $valueFilter){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter = '$valueFilter'");
@@ -103,8 +103,8 @@ class EntidadBase{
 		}
     		$filas = $this->showData($req);
         return $filas;
-	} 
-	
+	}
+
 		/*Seleccionar el numero de elementos indicados con 2 filtros ordenados por la columna indicada y orden ascendente*/
 	public function getNumElemsFiltered2AndOrdered($column, $filter1,$valueFilter1,$filter2,$valueFilter2,$numElem){
 		 $req=$this->db()->query("SELECT * FROM $this->table WHERE $filter1 = '$valueFilter1' AND $filter2 <> '$valueFilter2' ORDER by $column ASC LIMIT $numElem");
@@ -114,7 +114,7 @@ class EntidadBase{
     		$filas = $this->showData($req);
         return $filas;
 	}
-	
+
 	/*Selecciona todos los elementos ordenados por la columna indicada y orden descendente*/
 	public function getAllOrderByDesc($column){
 		 $req=$this->db()->query("SELECT * FROM $this->table ORDER by $column DESC");
@@ -139,7 +139,7 @@ class EntidadBase{
         //$req->execute(array('id' => $id));
         //$result = $req->fetchAll(PDO::FETCH_CLASS, $this->class);
 		    $filas = $this->showData($req);
-		
+
         return $result;
     }
 
@@ -164,8 +164,8 @@ class EntidadBase{
         $query=$this->db()->query("DELETE FROM $this->table WHERE $column = '$value'");
         return $query;
     }
-	
-	
+
+
 
 }
 ?>

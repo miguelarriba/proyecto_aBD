@@ -14,6 +14,7 @@
 		$categorias = parse_ini_file("./config/entorno.ini", true);
 		if($categorias==null)
 			throw new Exception('MySQL: Error al cargar las categorias');
+			session_start();
 	 ?>
 </head>
 
