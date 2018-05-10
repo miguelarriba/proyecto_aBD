@@ -12,8 +12,8 @@ class FormularioRegistro extends Form
         $html = <<<EOF
         <legend>Registro</legend>
           <div class="campos-formulario">
-              <h4>Nombre de usuario</h4>
-              <input class ="input-box" type="text" placeholder="Introduce tu nombre de usuario" name="uname" required>
+              <h4>Nombre del blog</h4>
+              <input class ="input-box" type="text" placeholder="Introduce el nombre que tendrá tu blog" name="uname" required>
 
               <h4>Email</h4>
               <input class ="input-box" type="email" placeholder="Introduce tu Email" name="mail" required>

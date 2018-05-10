@@ -12,6 +12,7 @@ div#front {
 
 }
 #title{
+	user-select: none;
 	cursor:default;
   color:white;
   margin-top: 0px;

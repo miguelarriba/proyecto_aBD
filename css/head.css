@@ -8,6 +8,7 @@ header{
     box-shadow: 0px 1px 17px -1px rgba(0,0,0,0.29);
 }
 #htitle{
+  user-select: none;
   float:left;
   color:#aed8eb;
   margin-top: 0px;
@@ -19,6 +20,7 @@ header{
   text-decoration:none;
 }
 #hprofile{
+  user-select: none;
   float: right;
   color: #aed8eb;
   margin-right: 200px;

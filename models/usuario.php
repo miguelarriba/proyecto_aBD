@@ -1,33 +1,23 @@
 <?php
 include 'entidadBase.php';
 class Usuario extends EntidadBase {
-    private $id_correo;
+    private $mail;
 	  private $password;
     private $nombre;
-    private $imagen;
-    private $admin;
 
 
     public function __construct(){
-		$this->table = "usuario";
+		    $this->table = "usuario";
         $class = "Usuario";
         parent::__construct($this->table, $class);
     }
 
-    public function isAdmin() {
-        return $this->admin;
+    public function getMail() {
+        return $this->mail;
     }
 
-    public function setAdmin($admin) {
-        $this->admin = $admin;
-    }
-
-    public function getIdCorreo() {
-        return $this->idCorreo;
-    }
-
-    public function setIdCorreo($idCorreo) {
-        $this->id_correo = $idCorreo;
+    public function setMail($mail) {
+        $this->mail = $mail;
     }
 
 	   public function getPassword() {
@@ -46,27 +36,18 @@ class Usuario extends EntidadBase {
         $this->nombre = $nombre;
     }
 
-    public function getImagen() {
-        return $this->imagen;
-    }
-
-    public function setImagen($imagen) {
-        $this->imagen = $imagen;
-    }
   /*
     Guarda el usuario en la base de datos
   */
 	public function signupUser(){
-        $query="INSERT INTO usuario (id_correo,password,nombre,imagen,admin)
-                VALUES('".$this->id_correo."',
+        $query="INSERT INTO usuario (mail,password,blogname)
+                VALUES('".$this->mail."',
                        '".$this->password."',
-                       '".$this->nombre."',
-                       '".$this->imagen."',
-                       '".$this->admin."');";
+                       '".$this->nombre."');";
         if($this->db()->query($query) == false) {
 			throw new Exception('MySQL: Error al realizar la inserción SQL');
 		}
-		
+
     }
 }
 ?>

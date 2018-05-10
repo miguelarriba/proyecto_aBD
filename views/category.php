@@ -12,7 +12,7 @@
 <?php include './layout/head.php'; ?>
 
 <div id=prheader>
-  <h1 id=prtitle>Cine</h1>
+  <h1 id=prtitle>#Cine</h1>
 </div>
 </ul>
 </div>

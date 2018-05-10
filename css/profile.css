@@ -25,9 +25,11 @@ body {
   margin-top: 50px;
 }
 #prtitle{
+	user-select: none;
   color: #2d3d4c;
 }
 #prmail{
+	user-select: none;
   font-weight: lighter;
   color:#60c3bd;
   margin-bottom: 30px;
@@ -41,6 +43,7 @@ body {
   border-radius: 3%;
 }
 #prcategory{
+	user-select: none;
 	font-weight: lighter;
 }
 #comment{
