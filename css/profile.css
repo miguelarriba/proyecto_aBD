@@ -1,0 +1,72 @@
+body {
+	margin: 0px;
+	font-family:sans-serif;
+}
+#following{
+  float: right;
+  margin-top: 120px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  border-style: solid;
+  padding: 15px;
+  border-radius: 2%;
+  border-width: 1px;
+  padding-right: 50px;
+}
+.follower{
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+.follower:hover {
+		cursor: pointer;
+}
+#prheader{
+  margin-left: 400px;
+  margin-top: 50px;
+}
+#prtitle{
+  color: #2d3d4c;
+}
+#prmail{
+  font-weight: lighter;
+  color:#60c3bd;
+  margin-bottom: 30px;
+}
+#prnewpost{
+  text-decoration:none;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #52a4d8;
+  border-radius: 3%;
+}
+#prcategory{
+	font-weight: lighter;
+}
+#comment{
+	margin-top: 100px;
+	resize: none;
+	width: 940px;
+	height: 100px;
+	font-size: 18px;
+	padding: 20px;
+}
+#postbody{
+	width: 1050px;
+	line-height: 25px;
+	font-size: 18px;
+	padding-top: 70px;
+	min-height: 700px;
+	margin: auto;
+}
+#like:hover{
+	background-color: #52a4d8;
+	border-color: #52a4d8;
+	color: white;
+}
+#liked{
+	background-color: #52a4d8;
+	border-color: #52a4d8;
+	color: white;
+	disabled:true;
+}

@@ -1,0 +1,19 @@
+footer{
+    font-family: sans-serif;
+    width: 100%;
+    background: #2d3d4c;
+    color:white;
+    margin: 0;
+    padding-top:10px;
+    clear: both;
+}
+#ftitle{
+  font-size: 26px;
+  padding: 20px;
+}
+#ftext{
+  font-size: 15px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  margin: 0;
+}

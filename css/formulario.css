@@ -1,0 +1,91 @@
+body {
+	background-color: #fff;
+	margin: 0px;
+}
+.formulario{
+  font-family: "Roboto";
+  font-size: 12pt;
+  font-weight: 200 !important;
+  display: block;
+  margin:auto;
+  border-radius: 4px;
+  background-color:#fff;
+  width: 1000px;
+	min-height: 600px;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.campos-formulario{
+  margin-left: 30px;
+}
+.input-box {
+    font-size:11pt;
+    border: 1px solid #000;
+    background:#FFF;
+    border-radius:5px;
+    color:#222;
+    padding:10px;
+    width:850px;
+}
+
+.submit-formulario{
+  float: right;
+  margin-right: 80px;
+  margin-top: 30px;
+}
+.boton-formulario{
+	outline:0;
+	cursor: pointer;
+  font-size: 12pt;
+  color: white;
+  background-color:#52a4d8;
+	box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.4);
+  padding: 10px;
+  border-radius: 3%;
+	border-style: hidden;
+}
+.boton-formulario2{
+	outline:0;
+	cursor: pointer;
+  font-size: 12pt;
+  color: black;
+	border-width: 1px;
+	margin-right: 5px;
+  background-color:#FFF;
+  padding: 10px;
+  border-radius: 3%;
+}
+#profileimage {
+  margin-left: 30px;
+	background-size: 100% 100%;
+  border-radius: 5%;
+}
+.checkbox {
+  border:#fff;
+  background:#FFF;
+  border-radius:5px;
+  color:#222;
+  padding-top:30px;
+  width:850px;
+}
+.error{
+  color: red;
+  font-size: 12pt;
+}
+.formulario legend{
+  margin-bottom: 40px;
+  font-size: 18pt;
+  font-weight: 200;
+  color:#52a4d8;
+}
+.formulario h4{
+  margin-bottom: 10px;
+  font-size: 12pt;
+  font-weight: 200;
+}
+.formulario p{
+  font-size: 10pt;
+  color: #444;
+}

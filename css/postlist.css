@@ -1,0 +1,46 @@
+#topentradas{
+	margin-left: 300px;
+	margin-top: 100px;
+	padding: 10px;
+}
+.ipost{
+	height: 350px;
+	width: 300px;
+	margin-right: 60px;
+  margin-bottom: 60px;
+	border-color: black;
+	border-radius: 2%;
+	border-width: 0.5px;
+	border-style: solid;
+	display: inline;
+	list-style-type: none;
+	padding: 20px;
+
+}
+.ipost:hover {
+
+		cursor: pointer;
+		box-shadow: 0px 1px 17px -1px rgba(0,0,0,0.29);
+}
+.postcat{
+	padding-left: 10px;
+	padding-right: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #ddd;
+	border-radius: 8%
+
+}
+.ptitle{
+	margin-bottom: 0;
+}
+.psubtitle{
+	margin-top: 2px;
+	color: #333;
+	font-size: 15px;
+}
+.ptext{
+	max-height: 215px;
+	overflow: hidden;
+	margin-bottom: 25px;
+}

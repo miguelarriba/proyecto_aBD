@@ -1,0 +1,28 @@
+header{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    width: 100%;
+    overflow: hidden;
+    background-color: #2d3d4c;
+    margin-bottom: 20px;
+    box-shadow: 0px 1px 17px -1px rgba(0,0,0,0.29);
+}
+#htitle{
+  float:left;
+  color:#aed8eb;
+  margin-top: 0px;
+  font-family:sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  line-height: 100px;
+  margin-left: 100px;
+  text-decoration:none;
+}
+#hprofile{
+  float: right;
+  color: #aed8eb;
+  margin-right: 200px;
+  margin-top: 40px;
+  font-size: 19px;
+  text-decoration:none;
+}

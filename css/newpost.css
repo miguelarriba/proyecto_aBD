@@ -1,0 +1,10 @@
+.input-text {
+    resize:vertical;
+    font-size:11pt;
+    border: 1px solid #000;
+    background:#FFF;
+    border-radius:5px;
+    color:#222;
+    padding:10px;
+    width:850px;
+}
