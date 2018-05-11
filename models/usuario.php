@@ -2,7 +2,7 @@
 include 'entidadBase.php';
 class Usuario extends EntidadBase {
     private $mail;
-	  private $password;
+	private $password;
     private $nombre;
 
 
@@ -41,7 +41,7 @@ class Usuario extends EntidadBase {
   */
 	public function signupUser(){
         $query="INSERT INTO user (mail, password, blogname)
-                VALUES ('HOla','aaaa','asdfasdf')";
+                VALUES ('".$this->getMail()."','".$this->getPassword()."','".$this->getNombre()."')";
 
         if($this->db()->query($query) == false)
 			     throw new Exception('MySQL: Error al realizar la inserción SQL');
