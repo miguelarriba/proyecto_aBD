@@ -8,6 +8,11 @@ class Post extends EntidadBase {
   private $id_category;
   private $text;
 
+  /**/
+
+  private $category;
+  private $blogname;
+
   public function __construct() {
 	    $this->table = "post";
       $class = "Post";
@@ -53,9 +58,26 @@ class Post extends EntidadBase {
   public function setText($text){
     $this->text = $text;
   }
+/**/
+
+  public function getCat(){
+    return $this->category;
+  }
+
+  public function setCat($category){
+    $this->category = $category;
+  }
+
+  public function getBlogname(){
+    return $this->blogname;
+  }
+
+  public function setBlogname($blogname){
+    $this->blogname = $blogname;
+  }
 
   public function load($id){
-    $req=$this->db()->query("SELECT * FROM post WHERE id_post = ".$id);
+    $req=$this->db()->query("SELECT * FROM post join user on (post.mail=user.mail) join categories on (post.id_category = categories.id_category) WHERE id_post = ".$id);
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL');
     $filas = $this->showData($req);
@@ -65,7 +87,8 @@ class Post extends EntidadBase {
     $this->setMail($filas[0]['mail']);
     $this->setIDCat($filas[0]['id_category']);
     $this->setText($filas[0]['ptext']);
-
+    $this->setCat($filas[0]['value']);
+    $this->setBlogname($filas[0]['blogname']);
 	}
 
   public function setPost(){

@@ -12,21 +12,17 @@ class Comentarios extends EntidadBase {
       $this->comentarios=array();
   }
 
-  private function load(){
-    $req=$this->db()->query("SELECT value FROM categories");
+  public function load($id){
+    $req=$this->db()->query("SELECT * FROM comments WHERE id_post = '".$id."'");
     if($req==false)
       throw new Exception('MySQL: Error al realizar la consulta SQL');
     $filas = $this->showData($req);
-    $i=0;
-    while(isset($filas[$i]['value'])){
-      $this->categorias[$i] = $filas[$i]['value'];
-      $i++;
-    }
+    return $filas;
   }
 
   public function set($id, $mail, $text){
         $query="INSERT INTO comments(id_post, mail, comment)
-                VALUES (".$id.",".$mail.",".$text.")";
+                VALUES ('".$id."','".$mail."','".$text."')";
 
         if($this->db()->query($query) == false)
 			     throw new Exception('MySQL: Error al realizar la inserción SQL');

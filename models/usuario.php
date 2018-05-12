@@ -47,16 +47,20 @@ class Usuario extends EntidadBase {
       $this->setNombre($filas[0]['blogname']);
   	}
 
-  /*
-    Guarda el usuario en la base de datos
-  */
-	public function signupUser(){
-        $query="INSERT INTO user (mail, password, blogname)
-                VALUES ('".$this->getMail()."','".$this->getPassword()."','".$this->getNombre()."')";
+    public function getFollowers(){
+      $req=$this->db()->query($sql = "SELECT * FROM following WHERE mail_1  = '".$this->getMail()."'");
+      if($req==false)
+        throw new Exception('MySQL: Error al realizar la consulta SQL');
+      return $this->showData($req);
+    }
 
-        if($this->db()->query($query) == false)
-			     throw new Exception('MySQL: Error al realizar la inserción SQL');
+  	public function signupUser(){
+          $query="INSERT INTO user (mail, password, blogname)
+                  VALUES ('".$this->getMail()."','".$this->getPassword()."','".$this->getNombre()."')";
 
-  }
+          if($this->db()->query($query) == false)
+  			     throw new Exception('MySQL: Error al realizar la inserción SQL');
+
+    }
 }
 ?>

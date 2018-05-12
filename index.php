@@ -3,10 +3,12 @@
 <head>
 	<?php
 		require_once './config/conectar.php';
-		include './models/categorias.php';
+		require './models/categorias.php';
+		require './models/postslist.php';
 	?>
 	<!--Hoja de estilos principal para index -->
 <link rel="stylesheet" type="text/css" href="../css/index.css" />
+<link rel="stylesheet" type="text/css" href="../css/postlist.css" />
 
 
 	<meta charset="utf-8">
@@ -49,7 +51,8 @@
 			?>
 	</ul>
 <?php
-include './views/postlist.php';
+$lista = new PostsList();
+$lista->perfil($_SESSION['mail']);
 ?>
 </div>
 

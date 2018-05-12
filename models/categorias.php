@@ -25,6 +25,10 @@ class Categorias extends EntidadBase {
     }
   }
 
+  public function getPos($value){
+    return array_search($value, $this->categorias)+1;
+  }
+
   public function getValue($id){
     return $this->categorias[($id-1)];
   }
