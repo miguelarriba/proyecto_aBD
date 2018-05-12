@@ -19,13 +19,11 @@ class FormularioRegistro extends Form
               <input class ="input-box" type="email" placeholder="Introduce tu Email" name="mail" required>
 
               <h4>Contraseña</h4>
-              <input class ="input-box" type="password" placeholder="Introduce una contraseña entre 8 y 16 caracteres" name="psw"
-                      pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>
+              <input class ="input-box" type="password" placeholder="Introduce una contraseña entre 8 y 16 caracteres" name="psw" required>
               <p>La contraseña requiere al menos: un dígito, una minúscula, una mayúscula y un caracter no alfanumérico.</p>
 
               <h4>Repite la contraseña</h4>
-              <input class ="input-box" type="password" placeholder="Introduce una contraseña que coincida" name="psw2"
-                      pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>
+              <input class ="input-box" type="password" placeholder="Introduce una contraseña que coincida" name="psw2" required>
             </div>
             <div class="submit-formulario">
               <input type="button" value="INICIAR SESION" class ="boton-formulario2" onclick="location.href='/views/login.php'">
@@ -38,6 +36,7 @@ EOF;
 
     protected function procesaFormulario($datos)
     {
+        session_start();
         $result = array();
 
         $username = htmlspecialchars(trim(strip_tags($_REQUEST["uname"])));
@@ -72,7 +71,7 @@ EOF;
       		}catch(Exception $e){
       			error_log("MySQL: Code: ".$e->getCode(). " Desc: " .$e->getMessage() ,0);
       			echo $e->getMessage();
-      			//$result = '../views/signup.php';
+      			$result = '../errorpage.php';
       		}
       	}
         return $result;

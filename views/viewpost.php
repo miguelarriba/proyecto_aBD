@@ -6,29 +6,47 @@
   <title>Titulo de la entrada</title>
 </head>
 <body>
-<?php include './layout/head.php'; ?>
-
-<div id=prheader>
-  <h1 id=prtitle>Titulo de la entrada</h1>
-  <h2 id=prmail>Nombre del blog</h2>
-  <h3 id=prcategory>#Cine</h3>
-</div>
-<div id=postbody>
-<p>
-  El asistente digital de Google será capaz de conversar con personas por teléfono para ahorrar a sus usuarios el esfuerzo de llamar directamente, entre otras novedades presentadas este martes por la firma en su conferencia para desarrolladores.
-  El asistente digital de Google será capaz de conversar con personas por teléfono para ahorrar a sus usuarios el esfuerzo de llamar directamente, entre otras novedades presentadas este martes por la firma en su conferencia para desarrolladores.
-
-          El CEO de
-          El CEO de Google, Sundar Pichai, ha inaugurado el evento retransmitido por internet desde Mountain View (California, EEUU) y ha puesto el foco en la inteligencia artificial, cada vez más integrada en los productos y servicios de Google, comenzando por su asistente digital.
-</p>
 <?php
+  require './layout/head.php';
+  require '../models/post.php';
+  require '../models/categorias.php';
+  require '../models/usuario.php';
+  require '../models/comentarios.php';
+
+  $post = new Post();
+  $post->load($_GET['id']);
+  $cat = new Categorias();
+  $user = new Usuario();
+  $user->load($post->getMail());
+  $comentarios = new Comentarios();
+
+echo
+ '<div id=prheader>'.
+ '<h1 id=prtitle>'.$post->getTitle().'</h1>'.
+ '<h2 id=prmail>'.$user->getNombre().'</h2>'.
+ '<h3 id=prcategory>#'.$cat->getValue($post->getIDCat()).'</h3></div>'.
+ '<div id=postbody>'.
+ '<p>'.
+    $post->getText().
+  '</p>';
+
   $liked=false;
   if($liked)
     echo '<input type="submit" onclick="like('.$liked.')" value="Liked" class ="boton-formulario2" id="liked">';
   else
     echo '<input type="submit" onclick="like('.$liked.')" value="Like" class ="boton-formulario2" id="like">';
 ?>
+<br>
+<textarea id="comment" placeholder="Introduce un comentario"></textarea>
+<div class="submit-formulario">
+  <input type="submit" onclick="comenta($comentarios)" value="COMENTAR" class ="boton-formulario">
+</div>
+</div>
+
 <script>
+function comenta(comentarios) {
+  comentarios->(document.getElementById("comment").value);
+}
 function like(liked) {
   if(!liked){
     document.getElementById("like").style.color = "white";
@@ -39,11 +57,6 @@ function like(liked) {
   }
 }
 </script>
-<br>
-<textarea id="comment" placeholder="Introduce un comentario"></textarea>
-<div class="submit-formulario">
-  <input type="submit" value="COMENTAR" class ="boton-formulario">
-</div>
-</div>
+
 <?php include './layout/foot_page.php';?>
 </body>

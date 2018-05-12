@@ -1,5 +1,5 @@
 <?php
-include 'entidadBase.php';
+require_once 'entidadBase.php';
 class Usuario extends EntidadBase {
     private $mail;
 	private $password;
@@ -36,6 +36,17 @@ class Usuario extends EntidadBase {
         $this->nombre = $nombre;
     }
 
+    public function load($mail){
+      $req=$this->db()->query("SELECT * FROM user WHERE mail = '".$mail."'");
+      if($req==false)
+        throw new Exception('MySQL: Error al realizar la consulta SQL');
+      $filas = $this->showData($req);
+
+      $this->setPassword($filas[0]['password']);
+      $this->setMail($filas[0]['mail']);
+      $this->setNombre($filas[0]['blogname']);
+  	}
+
   /*
     Guarda el usuario en la base de datos
   */
@@ -46,6 +57,6 @@ class Usuario extends EntidadBase {
         if($this->db()->query($query) == false)
 			     throw new Exception('MySQL: Error al realizar la inserción SQL');
 
-    }
+  }
 }
 ?>

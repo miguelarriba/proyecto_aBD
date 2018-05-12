@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
 <?php
-	//session_start();
-	//if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:/views/login.php");
+	session_start();
+	if(!isset($_SESSION['logged']) || !$_SESSION['logged'])	header("Location:./login.php");
 ?>
 <html>
 <head>
@@ -13,13 +13,13 @@
 </head>
 <body>
 	<?php
-			include 'layout/head.php';
+			include './layout/head.php';
 			include '../controllers/FormularioPost.php';
 
-			$form = new FormularioIdea();
+			$form = new FormularioPost();
 			$form->gestiona();
 
-			include 'layout/foot_page.php';
+			include './layout/foot_page.php';
 	?>
 </body>
 </html>

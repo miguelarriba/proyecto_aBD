@@ -1,5 +1,5 @@
 <?php
-
+require_once $_SERVER['DOCUMENT_ROOT']."/config/conectar.php";
 class EntidadBase{
 
     private $table;
@@ -19,7 +19,6 @@ class EntidadBase{
     public function __construct($table, $class) {
         $this->table=(string) $table;
         $this->class=(string) $class;
-        require_once '../config/conectar.php';
     		try{
     			$conectar=new Conectar();
     			$this->db=$conectar->getConexion();
@@ -125,7 +124,7 @@ class EntidadBase{
         return $filas;
 	}
 
-	private function showData($resultSet){
+	protected function showData($resultSet){
 		$filas= array();
 		while ($fila = $resultSet->fetch_assoc()) {
 			$filas[] = $fila;

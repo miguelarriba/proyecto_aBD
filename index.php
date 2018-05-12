@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<?php
+		require_once './config/conectar.php';
+		include './models/categorias.php';
+	?>
 	<!--Hoja de estilos principal para index -->
 <link rel="stylesheet" type="text/css" href="../css/index.css" />
 
@@ -10,11 +13,10 @@
 	<title>Bloggs</title>
 
 	<?php
-		//Carga categorias de entorno.ini
-		$categorias = parse_ini_file("./config/entorno.ini", true);
-		if($categorias==null)
-			throw new Exception('MySQL: Error al cargar las categorias');
-			session_start();
+
+		$cat = new Categorias;
+		$categorias = $cat->getCategorias();
+		session_start();
 	 ?>
 </head>
 
@@ -36,11 +38,11 @@
 	<ul id=categorias>
 		<?php
 			$i =0;
-			while(isset($categorias['CATEGORIAS']['categoria'][$i])){
+			while(isset($categorias[$i])){
 				echo '<li><a class=cate href="/views/category.php?cat=';
-				echo $categorias['CATEGORIAS']['categoria'][$i];
+				echo $categorias[$i];
 				echo '">';
-				echo $categorias['CATEGORIAS']['categoria'][$i];
+				echo $categorias[$i];
 				echo '</a></li>';
 				$i++;
 			}

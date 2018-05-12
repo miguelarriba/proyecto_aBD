@@ -15,8 +15,7 @@ class FormularioLogin extends Form
         				<div class="campos-formulario">
         				<h4>Email</h4> <input class ="input-box" type="text" name="mail" placeholder="Introduce tu e-mail" required>
 
-        				<h4>Contraseña</h4>	<input class ="input-box" type="password" name="psw" placeholder="Introduce una contraseña entre 8 y 16 caracteres"
-        											pattern="^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$" required>
+        				<h4>Contraseña</h4>	<input class ="input-box" type="password" name="psw" placeholder="Introduce una contraseña entre 8 y 16 caracteres" required>
         				<p>La contraseña requiere al menos: un dígito, una minúscula, una mayúscula y un caracter no alfanumérico.</p>
 
         				</div>
@@ -30,33 +29,29 @@ EOF;
 
     protected function procesaFormulario($datos)
     {
+      session_start();
       $result = array();
       $username = htmlspecialchars(trim(strip_tags($_REQUEST["mail"])));
       $password = htmlspecialchars(trim(strip_tags($_REQUEST["psw"])));
 
-      if(!isset($_SESSION['intentos'])){
-        $_SESSION['intentos'] = 0;
-        $_SESSION["logged"]=false;
-      }
-      if(!isset($_SESSION['logged'])){
-        $_SESSION["logged"]=false;
-      }
+      if(!isset($_SESSION['logged'])) $_SESSION["logged"]=false;
+
       try{
         //Se crea el objeto usuario y se abre conexión
         $user = new Usuario();
         //Consultamos si existe el usuario
-        $consulta = $user->getBy("id_correo",$username);
+        $consulta = $user->getBy("mail",$username);
         //Cerramos la conexión tras realizar la consulta
         $user->closeConnection();
         //Generamos el hash de la password en claro
         $hash=SHA1($password);
         //Comparamos el nuevo hash con el existente en BBDD
         if($consulta!=null and hash_equals($hash,$consulta[0]['password'])){
+
           $_SESSION["logged"]	= true;
-          $_SESSION['login'] = $consulta[0]['nombre'];
-          $_SESSION['mail'] = $consulta[0]['id_correo'];
-          $_SESSION['intentos'] = 0;
-          $result = '../views/index.php';
+          $_SESSION['login'] = $consulta[0]['blogname'];
+          $_SESSION['mail'] = $consulta[0]['mail'];
+          $result = '../index.php';
         }
         else $result[] = "Email o contraseña incorrecta";
 
