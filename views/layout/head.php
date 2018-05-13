@@ -8,7 +8,7 @@
 <body>
     <header>
         <a id=htitle href="../index.php">BLOGGs</a>
-        <a id=hprofile href="../views/profile.php">Perfil</a>
+        <a id=hprofile href="../views/profile.php">Mi perfil</a>
 
     </header>
 

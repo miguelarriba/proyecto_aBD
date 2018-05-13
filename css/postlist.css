@@ -33,6 +33,8 @@
 }
 .ptitle{
 	margin-bottom: 0;
+	max-height: 27px;
+	overflow: hidden;
 }
 .psubtitle{
 	margin-top: 2px;

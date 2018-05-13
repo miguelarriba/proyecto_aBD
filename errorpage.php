@@ -5,7 +5,11 @@
   <title>Error</title>
 </head>
 <body>
-  <h1>Oops!</h1>
+  <h1>Error :(</h1>
+  <?php
+  session_start();
+  echo $_SESSION['data_error'];
+  ?>
 
 </body>
 </html>

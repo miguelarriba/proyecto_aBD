@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="shortcut icon" href="../images/icon.png" />
 	<link rel="stylesheet" type="text/css" href="/css/head.css" />
 	<link rel="stylesheet" type="text/css" href="/css/foot_page.css" />
 	<link rel="stylesheet" type="text/css" href="/css/formulario.css" />
@@ -10,6 +11,10 @@
 
 <body>
 	<?php
+
+	/*
+		Crea formulario de registro
+	*/
 			include 'layout/head.php';
 			include '../controllers/FormularioRegistro.php';
 

@@ -11,7 +11,7 @@ class Comentarios extends EntidadBase {
       parent::__construct($this->table, $class);
       $this->comentarios=array();
   }
-
+  //Carga lista de comentarios de un post
   public function load($id){
     $req=$this->db()->query("SELECT * FROM comments WHERE id_post = '".$id."'");
     if($req==false)
@@ -19,7 +19,7 @@ class Comentarios extends EntidadBase {
     $filas = $this->showData($req);
     return $filas;
   }
-
+  //crea un cometario
   public function set($id, $mail, $text){
         $query="INSERT INTO comments(id_post, mail, comment)
                 VALUES ('".$id."','".$mail."','".$text."')";

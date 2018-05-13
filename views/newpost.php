@@ -7,12 +7,17 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<link rel="shortcut icon" href="../images/icon.png" />
 	<link rel="stylesheet" type="text/css" href="../css/formulario.css" />
 	<link rel="stylesheet" type="text/css" href="../css/newpost.css" />
-	<title>Crear Idea</title>
+	<title>Crear Post</title>
 </head>
 <body>
 	<?php
+
+	/*
+		Crea formulario de creacion de post
+	*/
 			include './layout/head.php';
 			include '../controllers/FormularioPost.php';
 

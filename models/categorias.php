@@ -12,7 +12,7 @@ class Categorias extends EntidadBase {
       $this->categorias=array();
       $this->load();
   }
-
+//Carga todas las categorias en el array
   private function load(){
     $req=$this->db()->query("SELECT value FROM categories");
     if($req==false)

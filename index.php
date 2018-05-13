@@ -2,11 +2,12 @@
 <html>
 <head>
 	<?php
+		//Pagina principal
 		require_once './config/conectar.php';
 		require './models/categorias.php';
 		require './models/postslist.php';
 	?>
-	<!--Hoja de estilos principal para index -->
+<link rel="shortcut icon" href="../images/icon.png" />
 <link rel="stylesheet" type="text/css" href="../css/index.css" />
 <link rel="stylesheet" type="text/css" href="../css/postlist.css" />
 
@@ -15,7 +16,7 @@
 	<title>Bloggs</title>
 
 	<?php
-
+		//carga categorias de db
 		$cat = new Categorias;
 		$categorias = $cat->getCategorias();
 		session_start();
@@ -25,6 +26,7 @@
 <body>
 <div id=front>
 		<?php
+		//crea login cabecera
 		if(!isset($_SESSION['logged']) || !$_SESSION['logged'])
 			echo '<a id=login href="./views/login.php">Iniciar Sesion</a>';
 		else{
@@ -39,6 +41,7 @@
 <div>
 	<ul id=categorias>
 		<?php
+		//crea categorias
 			$i =0;
 			while(isset($categorias[$i])){
 				echo '<li><a class=cate href="/views/category.php?cat=';
@@ -51,8 +54,9 @@
 			?>
 	</ul>
 <?php
+//crea lista de posts mas valorados
 $lista = new PostsList();
-$lista->perfil($_SESSION['mail']);
+$lista->topRated();
 ?>
 </div>
 

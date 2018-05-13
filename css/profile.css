@@ -15,10 +15,9 @@ body {
 }
 .follower{
   list-style-type: none;
-  margin-bottom: 10px;
-}
-.follower:hover {
-		cursor: pointer;
+  line-height: 35px;
+	text-decoration:none;
+	color: #333;
 }
 #prheader{
   margin-left: 400px;
@@ -29,6 +28,8 @@ body {
   color: #2d3d4c;
 }
 #prmail{
+	font-size: 18px;
+	text-decoration:none;
 	user-select: none;
   font-weight: lighter;
   color:#60c3bd;

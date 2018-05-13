@@ -75,7 +75,7 @@ class Post extends EntidadBase {
   public function setBlogname($blogname){
     $this->blogname = $blogname;
   }
-
+//Carga los campos desde db
   public function load($id){
     $req=$this->db()->query("SELECT * FROM post join user on (post.mail=user.mail) join categories on (post.id_category = categories.id_category) WHERE id_post = ".$id);
     if($req==false)
@@ -90,7 +90,7 @@ class Post extends EntidadBase {
     $this->setCat($filas[0]['value']);
     $this->setBlogname($filas[0]['blogname']);
 	}
-
+//crea un post
   public function setPost(){
         $query="INSERT INTO post (title, mail, id_category, ptext)
                VALUES('".$this->getTitle()."','".$this->getMail()."','".$this->getIDCat()."','".$this->getText()."')";
